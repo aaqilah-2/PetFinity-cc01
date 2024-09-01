@@ -436,6 +436,13 @@
                         </select>
                         <div class="error" id="end_operating_hour_error"></div>
                     </div>
+                    <!--newly added-->
+                    <div class="form-group">
+                        <label for="price_per_night">Price Per Night</label>
+                        <input id="price_per_night" class="form-input" type="number" name="price_per_night" step="0.01" min="0" required />
+                        <div class="error" id="price_per_night_error"></div>
+                    </div>
+                    <!--newly added-->
                     <div class="form-group">
                         <label for="services_provided">Services Provided</label>
                         <div class="flex flex-wrap">
@@ -613,6 +620,7 @@
                 const animalTypes = document.querySelectorAll('input[name="animal_types[]"]:checked');
                 const startOperatingHour = document.getElementById('start_operating_hour').value;
                 const endOperatingHour = document.getElementById('end_operating_hour').value;
+                const pricePerNight = document.getElementById('price_per_night').value.trim();
 
                 if (animalTypes.length === 0) {
                     isValid = false;
@@ -633,6 +641,13 @@
                     document.getElementById('end_operating_hour_error').textContent = 'End Operating Hour is required.';
                 } else {
                     document.getElementById('end_operating_hour_error').textContent = '';
+                }
+
+                if (!pricePerNight || isNaN(pricePerNight) || pricePerNight < 0) {
+                    isValid = false;
+                    document.getElementById('price_per_night_error').textContent = 'Valid price per night is required.';
+                } else {
+                    document.getElementById('price_per_night_error').textContent = '';
                 }
 
                 const servicesProvided = document.querySelectorAll('input[name="services_provided[]"]:checked');
