@@ -6,29 +6,19 @@ state([
     'notifications' => []
 ]);
 
-mount(function(){
-    // $this->loadNotifications();
-});
-
 $loadNotifications = function(){
     $user = null;
 
-    // check who is authenticated
-    foreach(
-        [
-            'petowner',
-            'trainingcenter',
-            'boardingcenter'
-        ] as $user_guard
-    ){
-        if(auth($user_guard)->check()){
+    // Check which user is authenticated
+    foreach(['petowner', 'trainingcenter', 'boardingcenter'] as $user_guard) {
+        if(auth($user_guard)->check()) {
             $user = auth($user_guard)->user();
             break;
         }
     }
 
-    if($user){
-    $this->notifications = $user->notifications;
+    if ($user) {
+        $this->notifications = $user->notifications;
     }
 };
 
@@ -36,16 +26,19 @@ $loadNotifications = function(){
 
 <div x-data="{
     init(){
-       setTimeout(() => {
-             @this.loadNotifications();
-       }, 2000);
+       @this.loadNotifications();
     }
 }">
     <ul>
-    @foreach($notifications as $notification)
-          <li>
-            {{ $notification->data['task_name'] }}
-          </li>
-    @endforeach
-</ul>
+        @foreach($notifications as $notification)
+        <li>
+            
+            <strong>Task:</strong> {{ $notification->data['task_name'] }} <br>
+            <strong>Completed At:</strong> {{ $notification->data['completed_at'] }} <br>
+            <strong>Notes:</strong> {{ $notification->data['notes'] }} <br>
+ 
+        </li>
+        
+        @endforeach
+    </ul>
 </div>

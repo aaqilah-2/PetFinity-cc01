@@ -25,7 +25,7 @@ class TaskCompletionController extends Controller
         ]);
 
         // Trigger the PetStatusUpdated event
-        event(new PetStatusUpdated($taskCompletion));
+       // event(new PetStatusUpdated($taskCompletion));
 
         // Notify the pet owner
         $appointment->load('petowner'); // Ensure the pet owner relationship is loaded

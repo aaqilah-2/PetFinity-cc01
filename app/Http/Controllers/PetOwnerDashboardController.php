@@ -13,6 +13,7 @@ class PetOwnerDashboardController extends Controller
 
     //* Show the dashboard
     public function index() {
+        
     }
 
     //* Show the pets the user owns and present it in the dashboard
@@ -27,11 +28,11 @@ class PetOwnerDashboardController extends Controller
         // Pass the pets to the view
         return view('pet-owner.dashboard', compact('pets'));
         
-        // Fetch the appointment for the current user, for example:
-    $appointment = Appointment::where('user_id', auth()->id())->latest()->first();
+            // Fetch the appointment for the current user, for example:
+        //$appointment = Appointment::where('user_id', auth()->id())->latest()->first();
 
-    // Pass the appointment to the view
-    return view('dashboard', compact('appointment'));
+        // Pass the appointment to the view
+       // return view('dashboard', compact('appointment'));
     }
 
     

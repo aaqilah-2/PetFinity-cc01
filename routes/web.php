@@ -176,6 +176,9 @@ Route::middleware(['auth:petowner'])->group(function () {
     //nimsha test analytics code
     Route::get('/petowner/lost-and-found-analytics', [PetOwnerAnalyticsController::class, 'showLostAndFoundAnalytics'])->name('petowner.analytics.lostandfound');
 
+
+    //Route::get('petowner/dashboard', [PetOwnerDashboardController::class, 'index'])->name('pet-owner.dashboard');
+
 });
 
 //!MIDDLEWARE FOR PET TRAINING CENTER
@@ -233,12 +236,12 @@ Route::middleware(['auth:boardingcenter'])->group(function () {
 
 
 
-Route::get('/test-notification', function(){
+// Route::get('/test-notification', function(){
 
-    $taskCompletion = \App\Models\TaskCompletion::find(12);
+//     $taskCompletion = \App\Models\TaskCompletion::find(12);
 
-    // Trigger the PetStatusUpdated event
-    event(new \App\Events\PetStatus());
+//     // Trigger the PetStatusUpdated event
+//     event(new \App\Events\PetStatus());
 
-});
+// });
 

@@ -1,6 +1,5 @@
 <?php
 namespace App\Models;
-namespace App\Models;
 
 use Illuminate\Contracts\Auth\Authenticatable as AuthenticatableContract;
 use Illuminate\Foundation\Auth\User as Authenticatable;
