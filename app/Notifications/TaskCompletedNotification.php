@@ -26,6 +26,7 @@ class TaskCompletedNotification extends Notification
             'task_name' => $this->taskCompletion->task->name,
             'completed_at' => $this->taskCompletion->completed_at,
             'notes' => $this->taskCompletion->notes,
+            'type' => 'TaskCompleted' // This is the type of notification
             
         
         ];

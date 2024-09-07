@@ -253,7 +253,7 @@
     </div>
 </div>
 
-@livewire('usernotification')
+{{-- @livewire('usernotification')
 
 
 
@@ -328,7 +328,40 @@
         var modal = new bootstrap.Modal(document.getElementById('notificationModal'));
         modal.show();
     });
+</script> --}}
+
+<!--notif test new one today-->
+<div class="fab" id="notificationFab">
+    <i class="fas fa-bell"></i>
+    @if($unreadCount > 0)
+        <span class="badge">{{ $unreadCount }}</span> <!-- Display unread count -->
+    @endif
+</div>
+
+<div class="modal fade" id="notificationModal" tabindex="-1" aria-labelledby="notificationModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="notificationModalLabel">Notifications</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <!-- Insert the notifications Livewire component here -->
+                @livewire('usernotification')
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Script to handle the modal display -->
+<script>
+    document.getElementById('notificationFab').addEventListener('click', function() {
+        var modal = new bootstrap.Modal(document.getElementById('notificationModal'));
+        modal.show();
+    });
 </script>
+
+
 
 
 
