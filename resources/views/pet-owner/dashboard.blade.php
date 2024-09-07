@@ -817,7 +817,7 @@ body {
         @else
             @foreach($pendingAppointments as $appointment)
                 <div class="appointment-card">
-                        Booking Pending for {{ $appointment->boardingcenter->business_name }} for {{ $pet->pet_name }}
+                        Booking Pending for {{ $appointment->boardingcenter->business_name }} for {{$appointment->pet->pet_name}}
                 </div>
             @endforeach
         @endif
