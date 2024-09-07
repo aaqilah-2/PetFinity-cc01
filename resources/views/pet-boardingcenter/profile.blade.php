@@ -381,7 +381,7 @@
     
 
     <div class="content">
-        <div class="d-flex justify-content-end p-3">
+        <div class="p-3 d-flex justify-content-end">
             <form method="POST" action="{{ route('logout') }}" class="d-inline-block">
                 @csrf
                 <button type="submit" class="btn btn-danger">
@@ -389,6 +389,7 @@
                 </button>
             </form>
         </div>
+
         <div class="container">
             <form action="{{ route('profile.update') }}" method="POST" enctype="multipart/form-data">
                 @csrf
@@ -542,7 +543,7 @@
         </div>
     </div>
     
-    <div class="d-flex justify-content-end p-3">
+    <div class="p-3 d-flex justify-content-end">
         <form method="POST" action="{{ route('logout') }}" class="d-inline-block">
             @csrf
             <button type="submit" class="btn btn-danger">

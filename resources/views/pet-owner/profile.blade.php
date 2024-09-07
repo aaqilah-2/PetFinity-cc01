@@ -22,6 +22,9 @@
         
         <!-- Main Content -->
         <div class="content">
+
+            
+                
             <div class="mt-5 container-form">
                 <form method="POST" enctype="multipart/form-data" action="{{ route('pet-owner.profile.update') }}" id="updateForm">
                     @csrf
@@ -95,6 +98,17 @@
                             <button type="submit" class="btn btn-primary">Change Password</button>
                         </div>
                     </div>
+
+                    <div class="content">
+                        <div class="p-3 d-flex justify-content-end">
+                            <form method="POST" action="{{ route('logout') }}" class="d-inline-block">
+                                @csrf
+                                <button type="submit" class="btn btn-danger">
+                                    <i class="fas fa-sign-out-alt"></i> Logout
+                                </button>
+                            </form>
+                        </div>
+                        
                 </form>
             </div>
         </div>

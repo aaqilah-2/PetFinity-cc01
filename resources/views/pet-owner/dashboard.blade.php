@@ -797,21 +797,31 @@ body {
             </div>
         </div>
 
-        <!-- Accepted Appointments Section -->
-        <div class="accepted-appointments-container">
-            <h2 class="section-title">Accepted Appointments</h2>
-            @if($acceptedAppointments->isEmpty())
-                <p>No accepted bookings.</p>
-            @else
-                @foreach($acceptedAppointments as $appointment)
-                    <div class="appointment-card">
-                        <a href="{{ route('test.show') }}" class="btn btn-primary">
-                            Booking Accepted for {{ $appointment->boardingcenter->business_name }}
-                        </a>
-                    </div>
-                @endforeach
-            @endif
-        </div>
+       <!-- Accepted Appointments Section -->
+       <div class="accepted-appointments-container">
+        <h2 class="section-title">Accepted Appointments</h2>
+        @if($acceptedAppointments->isEmpty())
+            <p>No accepted bookings.</p>
+        @else
+            @foreach($acceptedAppointments as $appointment)
+                <div class="appointment-card">
+                    <a href="{{ route('test.show') }}" class="btn btn-primary">
+                        Booking Accepted for {{ $appointment->boardingcenter->business_name }} for {{ $appointment->pet->pet_name }}
+                    </a>
+                </div>
+            @endforeach
+        @endif
+    
+        @if($pendingAppointments->isEmpty())
+            <p>No pending bookings.</p>
+        @else
+            @foreach($pendingAppointments as $appointment)
+                <div class="appointment-card">
+                        Booking Pending for {{ $appointment->boardingcenter->business_name }} for {{ $pet->pet_name }}
+                </div>
+            @endforeach
+        @endif
+    </div>
         
 
         <!-- Services Section -->
